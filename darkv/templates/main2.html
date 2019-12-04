@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vastha appointment page</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <link rel="javascript" type="text/javascript" href="{% static 'styles/main.js' %}">
+    <style type="text/css">
+          body{
+              background-image:url("{%static 'images/scetes.jpg' %}");
+              background-attachment:fixed;
+              background-size:100%;
+              image-size:100%;
+              overflow:hidden;
+          }
+         ul{
+            background-color:#02f022;
+            list-style-type:none;
+            font-size:1.2em;
+            color:black;
+            overflow:hidden;
+            padding:0px;
+            border-radius:20px;
+         }
+         li{
+            color:black;
+            float:right;
+            margin-right:20px;
+            padding:10px;
+            display:block;
+         }
+         li a{
+              color:black;
+              text-decoration:none;
+         }
+         li a:hover{
+                  background-color:#02a818;
+                  padding:10px;
+                  color:white;
+                  border-radius:20px;
+         }
+          .active{
+                  background-color:#02a818;
+                  padding:10px;
+                  color:white;
+                  border-radius:20px;
+          }
+          .h1{
+              margin-left:20px;
+              margin-top:0px;
+              font-size:3.2em;
+              padding:0px;
+          }
+
+    </style>
+</head>
+<body>
+<div class="headpart">
+           <h1 class="h1">Vastha Hospitals</h1>
+           <ul>
+               <li><a href="#">Contact us:5674893237</a></li>
+               <li><a href="#">About Us</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="accounts/logout">Logout</a> </li>
+               <li><a href="#">Welcome {{user.first_name}}</a></li>
+               {% else %}
+               <li><a href="accounts/login" >Login</a></li>
+               <li><a href="accounts/register">Register</a></li>
+               {% endif %}
+               <li><a href="/" class="active">Home</a></li>
+           </ul>
+     </div>
+ <table class="treatlist">
+          <caption>Treatments</caption>
+          <thead>
+          <tr>
+              <th>Doctor</th>
+              <th>Medications</th>
+              <th>Date</th>
+              <th>price</th>
+              <th>appointment</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dr.Krishna murthy MBBS</td>
+            <td>cardiology</td>
+            <td>oct.1,2019</td>
+            <td>$599</td>
+            <td><input type="checkbox"  id="dr1"  value="You will get appointment at Oct.1,2019."> Take</td>
+        </tr>
+        <tr>
+            <td>Dr.vishweshwar</td>
+            <td>Infected disease</td>
+            <td>oct.6 2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr2" value="You will get appointment at Oct.6,2019."> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.veera</td>
+            <td>Otolaryngology</td>
+            <td>oct.10,2019</td>
+            <td>$899</td>
+            <td><input type="checkbox"  id="dr3" value="You will get appointment at Oct.10,2019."> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Jhansi</td>
+            <td>General surgen</td>
+            <td>oct.16,2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr4" value="You will get appointment at Oct.16,2019."> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.meera</td>
+            <td>Orthopaedics</td>
+            <td>oct.20,2019</td>
+            <td>$999</td>
+            <td><input type="checkbox"  id="dr5" value="You will get appointment at Oct.20,2019."> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Murthy</td>
+            <td>Endocrinology</td>
+            <td>oct.25,2019</td>
+            <td>$1000</td>
+            <td><input type="checkbox"  id="dr6"value="You will get appointment at Oct.25,2019."> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Krishna</td>
+            <td>Surgen</td>
+            <td>oct.29,2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr7" value="You will get appointment at Oct.29,2019."> Take</td>
+        </tr>
+        <tr>
+            <td>Dr.Raj</td>
+            <td>Dentist</td>
+            <td>Dec.01,2019</td>
+            <td>$899</td>
+            <td><input type="checkbox"  id="dr8" value="You wil get appointment Dec.01,2019."> Take</td>
+        </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

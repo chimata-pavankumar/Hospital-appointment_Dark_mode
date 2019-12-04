@@ -1,0 +1,119 @@
+.headpart{
+   background-color:black;
+   top:0px;
+   left:0px;
+   position:absolute;
+   padding:0px;
+   width:100%;
+}
+ .h{
+      font-family:'Lucida Console',Sans-serif;
+      transform:translate(5%,-170%);
+      position:absolute;
+      font-size:2em;
+      font-weight:bold;
+      text-shadow:0px 0px 5px white,0px 0px 5px white,0px 0px 5px white,0px 0px 5px white,0px 0px 5px white,0px 0px 5px white,0px 0px 5px white;
+ }
+ .login_{
+         background-color:black;
+         padding:70px;
+         top:30%;
+         margin-left:20%;
+         position:absolute;
+         width:10%;
+         border-radius:40px;
+         box-shadow:0px 0px 10px blue,0px 0px 0px blue,0px 0px 10px blue,0px 0px 10px blue,0px 0px 10px blue,0px 0px 10px blue;
+ }
+ .user{
+              color:white;
+              text-align:center;
+              font-size:1em;
+              border-radius:40px;
+              padding:10px;
+              margin: 10px 10px 10px -8px;
+              width:100%;
+              border:3px solid blue;
+              outline:none;
+              background-color:black;
+ }
+
+.user:hover{
+         border:none;
+         transition:0.6s;
+         box-shadow:0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white;
+}
+
+.pass:hover{
+         border:none;
+         transition:0.6s;
+         box-shadow:0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white;
+}
+
+ .pass{
+             background-color:black;
+             color:black;
+             text-align:center;
+             font-size:1em;
+             border-radius:40px;
+             padding:10px;
+             margin: 10px 10px 10px -8px;
+             width:100%;
+             outline:none;
+             border:3px solid blue;
+ }
+.here{
+       color:blue;
+       float:left;
+       text-decoration:none;
+       margin-bottom:-80px;
+ }
+ .forget{
+        text-decoration:none;
+        color:blue;
+        float:left;
+        margin-top:70px;
+        margin-bottom:0px;
+
+ }
+.kanei{
+          position:absolute;
+          margin-left:-115px;
+          margin-top:4%;
+          box-shadow:0px 0px 10px #cc5200,0px 0px 10px #cc5200,0px 0px 10px #cc5200,0px 0px 10px #cc5200;
+          outline:none;
+          width:55%;
+          border:none;
+          color:white;
+          padding:10px;
+          background-color:black;
+          font-size:1em;
+          font-weight:bold;
+          border-radius:40px;
+          transition:.6s;
+ }
+
+ .kanei:hover{
+             transition:.6s;
+             color:white;
+             background-color:black;
+             border:none;
+             text-shadow:0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200,0px 0px 30px #cc5200;
+ }
+
+.pi{
+        margin-top:20px;
+        text-decoration:none;
+        color:#524524e4e
+ }
+
+.messlog{
+          position:absolute;
+          top:82%;
+          left:19%;
+          font-size:1.5em;
+          color:black;
+          border:3px dashed black;
+          background-color:red;
+          border-radius:30px;
+          border-width:3px;
+}

@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment order</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <link rel="javascript" type="text/javascript" href="{% static 'styles/main.js' %}">
+    <style type="text/css">
+          body{
+              background-color:black;
+              overflow:hidden;
+          }
+         ul{
+            background-color:black;
+            list-style-type:none;
+            font-size:1.2em;
+            color:black;
+            overflow:hidden;
+            padding:0px;
+            border-radius:20px;
+         }
+         li{
+            float:right;
+            margin-right:20px;
+            padding:10px;
+            display:block;
+            font-size:1.1em;
+
+         }
+         li a{
+              color:white;
+              text-decoration:none;
+              text-shadow:0px 0px 1px white,0px 0px 1px white,0px 0px 1px white;
+              blur:9px;
+         }
+         li a:hover{
+                  padding:12px;
+                  border-radius:10px;
+                  border:3px solid blue;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+         }
+          .active{
+                  padding:6px;
+                  border:3px solid blue;
+                  border-radius:20px;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+          }
+          .h1{
+             margin-left:20px;
+             margin-top:0px;
+             font-size:3em;
+             padding:0px;
+             font-family:Segoe Print;
+             text-shadow: 0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white;
+          }
+          .h2{
+              border: 5px solid black;
+              position:absolute;
+              left:20%;
+              padding:3px;
+              background-color:black;
+              box-shadow:0px 0px 3px blue,0px 0px 3px blue;
+              border-radius:20px;
+              top:50%;
+              font-weight: bold;
+              font-size:1em;
+              color:white;
+          }
+          .para{
+               margin-top:50%;
+               margin-left:40%;
+               background-color:blue;
+               color:ash;
+          }
+          .delete{
+                   background-color:red;
+                   font-weight:bold;
+                   margin-left:5px;
+                   padding:25px;
+                   margin-top:-20px;
+                   margin-bottom:-20px;
+                   margin-right:-3px;
+                   color:black;
+                   border-radius: 5px 10px; 5px 5px ;
+          }
+    </style>
+</head>
+<body>
+<div class="headpart">
+           <h1 class="h1">Vastha Hospitals</h1>
+           <ul>
+               <li><a href="#">Contact us:5674893237</a></li>
+               <li><a href="#">About Us</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="accounts/logout">Logout</a> </li>
+               <li><a href ='#' class="active">Appoint</a></li>
+               <li><a href="#">Welcome {{user.first_name}}</a></li>
+               <li><a href="del_one">Delete</li>
+               {% else %}
+               <li><a href="accounts/login" >Login</a></li>
+               <li><a href="accounts/register">Register</a></li>
+               {% endif %}
+               <li><a href="/">Home</a></li>
+           </ul>
+</div>
+
+          <div class="h2"><h1>{{data}}</div>
+
+</body>
+</html>

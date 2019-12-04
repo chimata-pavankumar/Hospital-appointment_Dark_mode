@@ -1,0 +1,317 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vastha hospitals</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <link rel="javascript" type="text/javascript" href="{% static 'styles/main.js' %}">
+    <style type="text/css">
+          body{
+              background-color:black;
+              overflow:hidden;
+          }
+         ul{
+            background-color:black;
+            list-style-type:none;
+            font-size:1.2em;
+            color:black;
+            overflow:hidden;
+            padding:0px;
+            border-radius:20px;
+         }
+         li{
+            float:right;
+            margin-right:20px;
+            padding:10px;
+            display:block;
+            font-size:1.1em;
+
+         }
+         li a{
+              color:white;
+              text-decoration:none;
+              text-shadow:0px 0px 1px white,0px 0px 1px white;
+              blur:9px;
+         }
+         li a:hover{
+                  padding:12px;
+                  border-radius:10px;
+                  border:3px solid blue;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+         }
+          .active{
+                  padding:6px;
+                  border:3px solid blue;
+                  border-radius:20px;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+          }
+          .h1{
+             margin-left:20px;
+             margin-top:0px;
+             font-size:3em;
+             padding:0px;
+             font-family:Segoe Print;
+             text-shadow: 0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white;
+          }
+          .take_{
+                background-color:black;
+                color:#cc5200;
+                border-radius:20px;
+                margin-left:-50px;
+                margin-top:-11px;
+                margin-bottom:-9px;
+                padding:9px;
+                width:140%;
+                font-weight:bold;
+                transition:0.3s;
+                outline:none;
+                border:none;
+          }
+          .take_:hover{
+               color:black;
+               transition:0.3s;
+               font-size:1em;
+               border:1px solid white;
+               text-shadow:0px 0px 5px white,0px 0px 5px white,0px 0px 5px white,0px 0px 5px white;
+          }
+    </style>
+</head>
+<body>
+<div class="headpart">
+           <h1 class="h1">Vastha Hospitals</h1>
+           <ul>
+               <li><a href="#">Contact us:5674893237</a></li>
+               <li><a href="#">About Us</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="accounts/logout">Logout</a> </li>
+               <li><a href='accounts/aappointment'>Appoint</a></li>
+               <li><a href="#">Welcome {{user.first_name}}</a></li>
+               {% else %}
+               <li><a href="accounts/login" >Login</a></li>
+               <li><a href="accounts/register">Register</a></li>
+               {% endif %}
+               <li><a href="/" class="active">Home</a></li>
+           </ul>
+     </div>
+{% if user.is_authenticated %}
+<!--after login-->
+    <table class="treatlist">
+          <caption>Treatments</caption>
+          <thead>
+          <tr>
+              <th>Id</th>
+              <th>Doctor</th>
+              <th>Treatments</th>
+              <th>Dates</th>
+              <th>Price</th>
+              <th>Appointment</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{id}}</td>
+            <td>{{doctor}}</td>
+            <td>{{treatments}}</td>
+            <td>{{dates}}</td>
+            <td>${{price}}</td>
+            {% if appointment == 'Available' %}
+            <form action="accounts/dr_one" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr1" class="take_" onclick="drONE();" name = "drone" value="You will get appointment at Nov.18,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr1" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>{{id2}}</td>
+            <td>{{doctor2}}</td>
+            <td>{{treatments2}}</td>
+            <td>{{dates2}}</td>
+            <td>${{price2}}</td>
+            {% if appointment2 == 'Available' %}
+            <form action="accounts/dr_two" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr2" class="take_" name = "dr_two"  onclick="drTWO();" value="You will get appointment at Nov.20,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr2" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+         <tr>
+             <td>{{id3}}</td>
+            <td>{{doctor3}}</td>
+            <td>{{treatments3}}</td>
+            <td>{{dates3}}</td>
+            <td>${{price3}}</td>
+            {% if appointment3 == 'Available' %}
+            <form action="accounts/dr_two" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr3" class="take_" name = "dr_three"  onclick="drTHREE();" value="You will get appointment at Nov.23,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr3" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+         <tr>
+             <td>{{id4}}</td>
+            <td>{{doctor4}}</td>
+            <td>{{treatments4}}</td>
+            <td>{{dates4}}</td>
+            <td>${{price4}}</td>
+            {% if appointment4 == 'Available' %}
+           <form action="accounts/dr_four" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr4" class="take_" name = "dr_four"  onclick="drFOUR();" value="You will get appointment at Nov.26,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr4" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+         <tr>
+             <td>{{id5}}</td>
+            <td>{{doctor5}}</td>
+            <td>{{treatments5}}</td>
+            <td>{{dates5}}</td>
+            <td>${{price5}}</td>
+            {% if appointment5 == 'Available' %}
+            <form action="accounts/dr_five" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr5" class="take_" name = "dr_five"  onclick="drFIVE();" value="You will get appointment at Nov.28,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr5" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+         <tr>
+             <td>{{id6}}</td>
+             <td>{{doctor6}}</td>
+             <td>{{treatments6}}</td>
+             <td>{{dates6}}</td>
+             <td>${{price6}}</td>
+             {% if appointment6 == 'Available' %}
+            <form action="accounts/dr_six" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr6" class="take_" name = "dr_six"  onclick="drSIX();" value="You will get appointment at Nov.27,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr6" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+         <tr>
+             <td>{{id7}}</td>
+            <td>{{doctor7}}</td>
+            <td>{{treatments7}}</td>
+            <td>{{dates7}}</td>
+            <td>${{price7}}</td>
+            {% if appointment7 == 'Available' %}
+            <form action="accounts/dr_seven" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr7" class="take_" name = "dr_seven"  onclick="drSEVEN();" value="You will get appointment at Nov.29,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr7" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>{{id8}}</td>
+            <td>{{doctor8}}</td>
+            <td>{{treatments8}}</td>
+            <td>{{dates8}}</td>
+            <td>${{price8}}</td>
+            {% if appointment8 == 'Available' %}
+            <form action="accounts/dr_eight" method="post" class="dr_one">
+                {% csrf_token %}
+                <td><button id="dr8" class="take_" onclick="dr_eight();" name = "drEIGHT()"  value="You will get appointment at Nov.30,2019.">Click Here</button></td>
+            </form>
+            {% else %}
+            <td><input type="checkbox"  id="dr8" checked disabled> Taken</td>
+            {% endif %}
+        </tr>
+    </tbody>
+    </table>
+    <!--<input type=submit value="submit" class="submit" id="submit">-->
+   <script type="text/javascript">
+           function drONE(){
+                window.alert(document.getElementById('dr1').value);
+           };
+            function drTWO(){
+                 window.alert(document.getElementById('dr2').value);
+            };
+            function drTHREE(){
+                  window.alert(document.getElementById('dr3').value);
+            };
+            function drFOUR(){
+             window.alert(document.getElementById('dr4').value);
+            };
+            function drFIVE(){
+             window.alert(document.getElementById('dr5').value);
+            };
+            function drSIX(){
+             window.alert(document.getElementById('dr6').value);
+            };
+            function drSEVEN(){
+             window.alert(document.getElementById('dr7').value);
+            };
+            function drEIGHT(){
+             window.alert(document.getElementById('dr8').value);
+            };
+    </script>
+{% else %}
+<table class="treatlist">
+    <caption>Treatments</caption>
+    <thead>
+         <tr>
+             <th>Doctor</th>
+             <th>Medications</th>
+             <th>Appointment</th>
+         </tr>
+    </thead>
+    <tbody>
+           <tr>
+               <td>{{doctor}}</td>
+               <td>{{treatments}}</td>
+               <td id="one" class="loutapp">{{appointment}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor2}}</td>
+               <td>{{treatments2}}</td>
+               <td id="two" class="loutapp">{{appointment2}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor3}}</td>
+               <td>{{treatments3}}</td>
+               <td id="three" class="loutapp">{{appointment3}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor4}}</td>
+               <td>{{treatments4}}</td>
+               <td id="four" class="loutapp">{{appointment4}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor5}}</td>
+               <td>{{treatments5}}</td>
+               <td id="five" class="loutapp">{{appointment5}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor6}}</td>
+               <td>{{treatments6}}</td>
+               <td id="six" class="loutapp">{{appointment6}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor7}}</td>
+               <td>{{treatments7}}</td>
+               <td id="seven" class="loutapp">{{appointment7}}</td>
+           </tr>
+           <tr>
+               <td>{{doctor8}}</td>
+               <td>{{treatments8}}</td>
+               <td id="eight" class="loutapp">{{appointment8}}</td>
+           </tr>
+    </tbody>
+</table>
+{% endif %}
+<!--<a href='accounts/login'><input type="submit" class="submi"  value="Login Here"></a>-->
+</body>
+</html>

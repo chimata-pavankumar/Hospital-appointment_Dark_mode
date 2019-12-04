@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<div lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vastha hospitals</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <style type="text/css">
+    body{
+         background-image:url("{%static 'images/scetes.jpg' %}");
+         background-attachment:fixed;
+         background-size:100%;
+         image-size:100%;
+         overflow:hidden;
+    }
+     ul{
+        background-color:#02f022;
+        list-style-type:none;
+        font-size:1.2em;
+        color:black;
+        overflow:hidden;
+        padding:0px;
+        border-radius:20px;
+     }
+     li{
+        color:black;
+        float:right;
+        margin-right:20px;
+        padding:10px;
+        display:block;
+
+     }
+     li a{
+         color:black;
+         text-decoration:none;
+     }
+     li a:hover{
+          background-color:#02a818;
+          padding:10px;
+          color:white;
+          border-radius:20px;
+     }
+     .active{
+          background-color:#02a818;
+          padding:10px;
+          color:white;
+          border-radius:20px;
+     }
+     .h1{
+         margin-left:20px;
+         margin-top:0px;
+         font-size:3.2em;
+         padding:0px;
+     }
+    </style>
+</head>
+<body>
+<div class="headpart">
+    <h1 class="h1">Vastha Hospitals</h1>
+    <ul>
+        <li><a href="#">Contact us:5674893237</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="accounts/logout">Logout</a> </li>
+        <li><a href="#">Welcome {{user.first_name}}</a></li>
+        <li><a href="accounts/login" >Login</a></li>
+        <li><a href="accounts/register">Register</a></li>
+        <li><a href="/" class="active">Home</a></li>
+    </ul>
+</div>
+<!-- after login -->
+
+    <table class="treatlist">
+    <caption>Treatments</caption>
+    <thead>
+    <tr>
+        <th>Doctor</th>
+        <th>Medications</th>
+        <th>Date</th>
+        <th>price</th>
+        <th>appointment</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dr.Krishna murthy MBBS</td>
+            <td>cardiology</td>
+            <td>oct.1,2019</td>
+            <td>$599</td>
+            <td><input type="checkbox"  id="dr1"  value="Got appointed at oct.1,2019"> Take</td>
+        </tr>
+        <tr>
+            <td>Dr.vishweshwar</td>
+            <td>Infected disease</td>
+            <td>oct.6 2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr2" value="Got appointment oct.6,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.veera</td>
+            <td>Otolaryngology</td>
+            <td>oct.10,2019</td>
+            <td>$899</td>
+            <td><input type="checkbox"  id="dr3" value="Got appointment oct.10,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Jhansi</td>
+            <td>General surgen</td>
+            <td>oct.16,2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr4" value="Got appointment oct.16,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.meera</td>
+            <td>Orthopaedics</td>
+            <td>oct.20,2019</td>
+            <td>$999</td>
+            <td><input type="checkbox"  id="dr5" value="Got appointment oct.20,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Murthy</td>
+            <td>Endocrinology</td>
+            <td>oct.25,2019</td>
+            <td>$1000</td>
+            <td><input type="checkbox"  id="dr6"value="Got appointment oct.25,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Krishna</td>
+            <td>Surgen</td>
+            <td>oct.29,2019</td>
+            <td>$699</td>
+            <td><input type="checkbox"  id="dr7" value="Got appointment oct.29,2019"> Take</td>
+        </tr>
+         <tr>
+            <td>Dr.Raj</td>
+            <td>Dentist</td>
+            <td>Dec.01,2019</td>
+            <td>$899</td>
+            <td><input type="checkbox"  id="dr8" value="Got appointment Dec.01,2019"> Take</td>
+         </tr>
+        <input type=submit value="submit" onclick="forsubmit();" class="submit" id="submit">
+
+        <script type="text/javascript">
+            function forsubmit(){
+                     if (document.getElementById('dr1').checked==false && document.getElementById('dr2').checked==false && document.getElementById('dr3').checked==false && document.getElementById('dr4').checked==false && document.getElementById('dr5').checked==false && document.getElementById('dr6').checked==false && document.getElementById('dr7').checked==false && document.getElementById('dr8').checked==false){
+                     alert("Not Selected any");
+                     window.location = "http://localhost:63342/python.py/projects/hospital/templates/one.html?_ijt=ao838h6i72fbubeil6vemaq6bm";
+                     document.write("Not selected any");
+                     }else if (document.getElementById('dr1').checked){
+                         document.getElementById('one').innerHTML='not available';
+                     }else if (document.getElementById('dr2').checked){
+                          alert(document.getElementById('dr2').value);
+                          document.write(document.getElementById('dr2').value);
+                          document.getElementById('two').innerHTML='not available';
+                     }else if (document.getElementById('dr3').checked){
+                          alert(document.getElementById('dr3').value);
+                          document.write(document.getElementById('dr3').value);
+                          document.getElementById('three').innerHTML='not available';
+                     }else if (document.getElementById('dr4').checked){
+                          alert(document.getElementById('dr4').value);
+                          document.write(document.getElementById('dr4').value);
+                          document.getElementById('four').innerHTML='not available';
+                     }else if (document.getElementById('dr5').checked){
+                          alert(document.getElementById('dr5').value);
+                          document.write(document.getElementById('dr5').value);
+                          document.getElementById('five').innerHTML='not available';
+                     }else if (document.getElementById('dr6').checked){
+                          alert(document.getElementById('dr6').value);
+                          document.write(document.getElementById('dr6').value);
+                          document.getElementById('six').innerHTML='not available';
+                     }else if (document.getElementById('dr7').checked){
+                          alert(document.getElementById('dr7').value);
+                          document.write(document.getElementById('dr7').value);
+                          document.getElementById('seven').innerHTML='not available';
+                     }else if (document.getElementById('dr8').checked){
+                          alert(document.getElementById('dr8').value);
+                          document.write(document.getElementById('dr8').value);
+                          document.getElementById('eight').innerHTML='not available';
+                     }else{
+                     alert('Not selected ANY');
+                     }
+            }
+        </script>
+    </tbody>
+</table>
+<!--before login -->
+<table class="treatlist">
+    <caption>Treatments</caption>
+    <thead>
+    <tr>
+        <th>Doctor</th>
+        <th>Medications</th>
+        <th>Appointment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Dr.krishna murthy</td>
+        <td>cardiology</td>
+        <td id="one">available</td>
+    </tr>
+    <tr>
+        <td>Dr.Vishweshwar</td>
+        <td>Infected disease</td>
+        <td id="two">available</td>
+    </tr>
+    <tr>
+        <td>Dr.veera</td>
+        <td>Otolaryngology</td>
+        <td id="three">available</td>
+    </tr>
+    <tr>
+        <td>Dr.Jhansi</td>
+        <td>General surgen</td>
+        <td id="four">available</td>
+    </tr>
+    <tr>
+        <td>Dr.meera</td>
+        <td>Orthopaedics</td>
+        <td id="five">available</td>
+    </tr>
+    <tr>
+        <td>Dr.Murthy</td>
+        <td>Endocrinology</td>
+        <td id="six">available</td>
+    </tr>
+    <tr>
+        <td>Dr.Krishna</td>
+        <td>Surgen</td>
+        <td id="seven">available</td>
+    </tr>
+    <tr>
+        <td>Dr.Raj</td>
+        <td>Dental</td>
+        <td id=eight">available</td>
+    </tr>
+         <a href='accounts/login'><input type="submit" class="submi" name="submit" value="Login Here"></a>
+    </tbody>
+</table>
+</body>
+</html>

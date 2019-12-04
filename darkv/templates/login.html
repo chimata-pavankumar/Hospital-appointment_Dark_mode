@@ -1,0 +1,87 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'styles/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+    <style type="text/css">
+    body{
+         background-color:black;
+         overflow:hidden;
+    }
+     ul{
+            background-color:black;
+            list-style-type:none;
+            font-size:1.2em;
+            color:black;
+            overflow:hidden;
+            padding:0px;
+            border-radius:20px;
+     }
+     li{
+            float:right;
+            margin-right:20px;
+            padding:10px;
+            display:block;
+            font-size:1.1em;
+     }
+
+     li a{
+              color:white;
+              text-decoration:none;
+              text-shadow:0px 0px 1px white,0px 0px 1px white;
+              blur:9px;
+     }
+     li a:hover{
+                  padding:12px;
+                  border-radius:10px;
+                  border:3px solid blue;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+     }
+     .active{
+                  padding:6px;
+                  border:3px solid blue;
+                  border-radius:20px;
+                  border-shadow:0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue,0px 0px 5px blue;
+     }
+     .h1{
+             margin-left:20px;
+             margin-top:0px;
+             font-size:3em;
+             padding:0px;
+             font-family:Segoe Print;
+             text-shadow: 0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white,0px 0px 10px white;
+     }
+</style>
+</head>
+<body>
+<div class="headpart">
+    <h1 class="h1">Vastha Hospitals</h1>
+    <ul>
+        <li><a href="#">Contact us:5674893237</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="login" class="active">Login</a> </li>
+        <li><a href="register">Register</a></li>
+        <li><a href="/">Home</a></li>
+    </ul>
+</div>
+<div class="login_">
+    <form action="login" method="post">
+        {% csrf_token %}
+        <h1 class="h">Login</h1>
+        <input type="text" class="user" name="username" placeholder="username" required><br>
+        <input type="password" name="password" placeholder="password" class="pass" required><br>
+        <input type="submit" class="kanei" value="Login">
+        <a href="#" class="forget">forget password ?</a>
+        <a href="http://127.0.0.1:8000/accounts/register" class="here"> Register Here</a><br>
+    </form>
+</div>
+<div class="messlog">
+        {% for mess in messages  %}
+           {{mess}}
+        {% endfor %}
+</div>
+</body>
+</html>
